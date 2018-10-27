@@ -23,7 +23,7 @@ public class TestConnection {
     public void testConnection(){
         long id = 657719;
 
-        DrCustInfo drCustInfo = queryBiz.testconnection(id);
+        String drCustInfo = queryBiz.testconnection(id);
 
         log.info("返回数据：" + JSONObject.toJSONString(drCustInfo));
     }

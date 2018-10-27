@@ -5,5 +5,5 @@ import com.shine.micro.db.pojo.DrCustInfo;
 public interface QueryBiz {
 
 
-    public DrCustInfo testconnection(Long id);
+    public String testconnection(Long id);
 }

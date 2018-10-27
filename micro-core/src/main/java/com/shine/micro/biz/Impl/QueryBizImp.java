@@ -17,12 +17,12 @@ public class QueryBizImp implements QueryBiz {
     DrCustInfoMapper drCustInfoMapper;
 
     @Override
-    public DrCustInfo testconnection(Long id) {
+    public String testconnection(Long id) {
 
         log.info("请求参数：" + id);
         DrCustInfo drCustInfo = drCustInfoMapper.selectByPrimaryKey(id);
 
         log.info("返回参数：" + JSONObject.toJSONString(drCustInfo));
-        return drCustInfo;
+        return JSONObject.toJSONString(drCustInfo);
     }
 }

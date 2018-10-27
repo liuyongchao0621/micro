@@ -27,6 +27,6 @@
         <!--</property>-->
     </bean>
 
-
+    <import resource="classpath*:spring/dubbo-provider.xml"/>
     <import resource="classpath*:config/datasource.xml"/>
 </beans>
