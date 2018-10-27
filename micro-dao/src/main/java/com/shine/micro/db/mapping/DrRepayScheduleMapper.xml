@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shine.micro.db.mapper.DrRepayScheduleMapper">
+  <resultMap id="BaseResultMap" type="com.shine.micro.db.pojo.DrRepaySchedule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="biz_id" jdbcType="VARCHAR" property="bizId" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="INFO_OP_TYPE" jdbcType="VARCHAR" property="infoOpType" />
+    <result column="biz_yearmonth" jdbcType="VARCHAR" property="bizYearmonth" />
+    <result column="DUE_NO" jdbcType="VARCHAR" property="dueNo" />
+    <result column="AC_NO" jdbcType="VARCHAR" property="acNo" />
+    <result column="TTL_AMT" jdbcType="DECIMAL" property="ttlAmt" />
+    <result column="TTL_CNT" jdbcType="BIGINT" property="ttlCnt" />
+    <result column="CURR_AMT" jdbcType="DECIMAL" property="currAmt" />
+    <result column="CURR_INTST" jdbcType="DECIMAL" property="currIntst" />
+    <result column="CURR_CNT" jdbcType="BIGINT" property="currCnt" />
+    <result column="WRK_DATE" jdbcType="VARCHAR" property="wrkDate" />
+    <result column="BEG_DATE" jdbcType="VARCHAR" property="begDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="PAY_IND" jdbcType="CHAR" property="payInd" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="PER_UPD_CODE" jdbcType="VARCHAR" property="perUpdCode" />
+    <result column="UPD_OP_NO" jdbcType="VARCHAR" property="updOpNo" />
+    <result column="UPD_DATE" jdbcType="VARCHAR" property="updDate" />
+    <result column="OCC_DATE" jdbcType="VARCHAR" property="occDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, biz_id, biz_type, INFO_OP_TYPE, biz_yearmonth, DUE_NO, AC_NO, TTL_AMT, TTL_CNT, 
+    CURR_AMT, CURR_INTST, CURR_CNT, WRK_DATE, BEG_DATE, END_DATE, PAY_IND, TEL, PER_UPD_CODE, 
+    UPD_OP_NO, UPD_DATE, OCC_DATE, create_time, update_time, report_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_repay_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dr_repay_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shine.micro.db.pojo.DrRepaySchedule">
+    insert into dr_repay_schedule (id, biz_id, biz_type, 
+      INFO_OP_TYPE, biz_yearmonth, DUE_NO, 
+      AC_NO, TTL_AMT, TTL_CNT, 
+      CURR_AMT, CURR_INTST, CURR_CNT, 
+      WRK_DATE, BEG_DATE, END_DATE, 
+      PAY_IND, TEL, PER_UPD_CODE, 
+      UPD_OP_NO, UPD_DATE, OCC_DATE, 
+      create_time, update_time, report_date
+      )
+    values (#{id,jdbcType=BIGINT}, #{bizId,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, 
+      #{infoOpType,jdbcType=VARCHAR}, #{bizYearmonth,jdbcType=VARCHAR}, #{dueNo,jdbcType=VARCHAR}, 
+      #{acNo,jdbcType=VARCHAR}, #{ttlAmt,jdbcType=DECIMAL}, #{ttlCnt,jdbcType=BIGINT}, 
+      #{currAmt,jdbcType=DECIMAL}, #{currIntst,jdbcType=DECIMAL}, #{currCnt,jdbcType=BIGINT}, 
+      #{wrkDate,jdbcType=VARCHAR}, #{begDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{payInd,jdbcType=CHAR}, #{tel,jdbcType=VARCHAR}, #{perUpdCode,jdbcType=VARCHAR}, 
+      #{updOpNo,jdbcType=VARCHAR}, #{updDate,jdbcType=VARCHAR}, #{occDate,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{reportDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shine.micro.db.pojo.DrRepaySchedule">
+    insert into dr_repay_schedule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bizId != null">
+        biz_id,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE,
+      </if>
+      <if test="bizYearmonth != null">
+        biz_yearmonth,
+      </if>
+      <if test="dueNo != null">
+        DUE_NO,
+      </if>
+      <if test="acNo != null">
+        AC_NO,
+      </if>
+      <if test="ttlAmt != null">
+        TTL_AMT,
+      </if>
+      <if test="ttlCnt != null">
+        TTL_CNT,
+      </if>
+      <if test="currAmt != null">
+        CURR_AMT,
+      </if>
+      <if test="currIntst != null">
+        CURR_INTST,
+      </if>
+      <if test="currCnt != null">
+        CURR_CNT,
+      </if>
+      <if test="wrkDate != null">
+        WRK_DATE,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="payInd != null">
+        PAY_IND,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="perUpdCode != null">
+        PER_UPD_CODE,
+      </if>
+      <if test="updOpNo != null">
+        UPD_OP_NO,
+      </if>
+      <if test="updDate != null">
+        UPD_DATE,
+      </if>
+      <if test="occDate != null">
+        OCC_DATE,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bizId != null">
+        #{bizId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYearmonth != null">
+        #{bizYearmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acNo != null">
+        #{acNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ttlAmt != null">
+        #{ttlAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ttlCnt != null">
+        #{ttlCnt,jdbcType=BIGINT},
+      </if>
+      <if test="currAmt != null">
+        #{currAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currIntst != null">
+        #{currIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="currCnt != null">
+        #{currCnt,jdbcType=BIGINT},
+      </if>
+      <if test="wrkDate != null">
+        #{wrkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="payInd != null">
+        #{payInd,jdbcType=CHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="perUpdCode != null">
+        #{perUpdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updOpNo != null">
+        #{updOpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updDate != null">
+        #{updDate,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shine.micro.db.pojo.DrRepaySchedule">
+    update dr_repay_schedule
+    <set>
+      <if test="bizId != null">
+        biz_id = #{bizId,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYearmonth != null">
+        biz_yearmonth = #{bizYearmonth,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acNo != null">
+        AC_NO = #{acNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ttlAmt != null">
+        TTL_AMT = #{ttlAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ttlCnt != null">
+        TTL_CNT = #{ttlCnt,jdbcType=BIGINT},
+      </if>
+      <if test="currAmt != null">
+        CURR_AMT = #{currAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="currIntst != null">
+        CURR_INTST = #{currIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="currCnt != null">
+        CURR_CNT = #{currCnt,jdbcType=BIGINT},
+      </if>
+      <if test="wrkDate != null">
+        WRK_DATE = #{wrkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="payInd != null">
+        PAY_IND = #{payInd,jdbcType=CHAR},
+      </if>
+      <if test="tel != null">
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="perUpdCode != null">
+        PER_UPD_CODE = #{perUpdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updOpNo != null">
+        UPD_OP_NO = #{updOpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="updDate != null">
+        UPD_DATE = #{updDate,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shine.micro.db.pojo.DrRepaySchedule">
+    update dr_repay_schedule
+    set biz_id = #{bizId,jdbcType=VARCHAR},
+      biz_type = #{bizType,jdbcType=VARCHAR},
+      INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      biz_yearmonth = #{bizYearmonth,jdbcType=VARCHAR},
+      DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      AC_NO = #{acNo,jdbcType=VARCHAR},
+      TTL_AMT = #{ttlAmt,jdbcType=DECIMAL},
+      TTL_CNT = #{ttlCnt,jdbcType=BIGINT},
+      CURR_AMT = #{currAmt,jdbcType=DECIMAL},
+      CURR_INTST = #{currIntst,jdbcType=DECIMAL},
+      CURR_CNT = #{currCnt,jdbcType=BIGINT},
+      WRK_DATE = #{wrkDate,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      PAY_IND = #{payInd,jdbcType=CHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      PER_UPD_CODE = #{perUpdCode,jdbcType=VARCHAR},
+      UPD_OP_NO = #{updOpNo,jdbcType=VARCHAR},
+      UPD_DATE = #{updDate,jdbcType=VARCHAR},
+      OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      report_date = #{reportDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

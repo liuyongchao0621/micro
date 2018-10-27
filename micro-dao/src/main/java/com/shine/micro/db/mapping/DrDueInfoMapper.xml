@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shine.micro.db.mapper.DrDueInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shine.micro.db.pojo.DrDueInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="biz_year" jdbcType="VARCHAR" property="bizYear" />
+    <result column="biz_month" jdbcType="VARCHAR" property="bizMonth" />
+    <result column="CIF_NAME" jdbcType="VARCHAR" property="cifName" />
+    <result column="INFO_OP_TYPE" jdbcType="VARCHAR" property="infoOpType" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="PACT_NO" jdbcType="VARCHAR" property="pactNo" />
+    <result column="OCC_DATE" jdbcType="VARCHAR" property="occDate" />
+    <result column="INFO_TYPE" jdbcType="VARCHAR" property="infoType" />
+    <result column="DUE_NO" jdbcType="VARCHAR" property="dueNo" />
+    <result column="CUR_NO" jdbcType="VARCHAR" property="curNo" />
+    <result column="DUE_AMT" jdbcType="DECIMAL" property="dueAmt" />
+    <result column="BAL" jdbcType="DECIMAL" property="bal" />
+    <result column="BEG_DATE" jdbcType="VARCHAR" property="begDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="OCCUR_TYPE" jdbcType="VARCHAR" property="occurType" />
+    <result column="LOAN_TYPE" jdbcType="VARCHAR" property="loanType" />
+    <result column="LN_TRADE_NO" jdbcType="VARCHAR" property="lnTradeNo" />
+    <result column="LOAN_KIND" jdbcType="VARCHAR" property="loanKind" />
+    <result column="EXP_FLAG" jdbcType="VARCHAR" property="expFlag" />
+    <result column="FOUR_STS" jdbcType="VARCHAR" property="fourSts" />
+    <result column="FIVE_STS" jdbcType="VARCHAR" property="fiveSts" />
+    <result column="BASE_RATE" jdbcType="VARCHAR" property="baseRate" />
+    <result column="LN_RATE" jdbcType="DECIMAL" property="lnRate" />
+    <result column="OVER_RATE" jdbcType="DECIMAL" property="overRate" />
+    <result column="FINE_RATE" jdbcType="DECIMAL" property="fineRate" />
+    <result column="CMPD_RATE" jdbcType="DECIMAL" property="cmpdRate" />
+    <result column="EXP_RATE" jdbcType="DECIMAL" property="expRate" />
+    <result column="INNER_INTST" jdbcType="DECIMAL" property="innerIntst" />
+    <result column="OUTER_INTST" jdbcType="DECIMAL" property="outerIntst" />
+    <result column="RETURN_COUNT" jdbcType="VARCHAR" property="returnCount" />
+    <result column="ACC_FEE" jdbcType="DECIMAL" property="accFee" />
+    <result column="ACC_TOL_FEE" jdbcType="DECIMAL" property="accTolFee" />
+    <result column="LN_TYPE" jdbcType="VARCHAR" property="lnType" />
+    <result column="REPAY_TYPE" jdbcType="VARCHAR" property="repayType" />
+    <result column="GRACE_DAY" jdbcType="VARCHAR" property="graceDay" />
+    <result column="VERIFICA_FLAG" jdbcType="VARCHAR" property="verificaFlag" />
+    <result column="LOAN_STATUS" jdbcType="VARCHAR" property="loanStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="loan_term" jdbcType="INTEGER" property="loanTerm" />
+    <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, biz_type, biz_year, biz_month, CIF_NAME, INFO_OP_TYPE, ID_TYPE, ID_NO, PACT_NO, 
+    OCC_DATE, INFO_TYPE, DUE_NO, CUR_NO, DUE_AMT, BAL, BEG_DATE, END_DATE, OCCUR_TYPE, 
+    LOAN_TYPE, LN_TRADE_NO, LOAN_KIND, EXP_FLAG, FOUR_STS, FIVE_STS, BASE_RATE, LN_RATE, 
+    OVER_RATE, FINE_RATE, CMPD_RATE, EXP_RATE, INNER_INTST, OUTER_INTST, RETURN_COUNT, 
+    ACC_FEE, ACC_TOL_FEE, LN_TYPE, REPAY_TYPE, GRACE_DAY, VERIFICA_FLAG, LOAN_STATUS, 
+    create_time, update_time, loan_term, report_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_due_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dr_due_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shine.micro.db.pojo.DrDueInfo">
+    insert into dr_due_info (id, biz_type, biz_year, 
+      biz_month, CIF_NAME, INFO_OP_TYPE, 
+      ID_TYPE, ID_NO, PACT_NO, 
+      OCC_DATE, INFO_TYPE, DUE_NO, 
+      CUR_NO, DUE_AMT, BAL, 
+      BEG_DATE, END_DATE, OCCUR_TYPE, 
+      LOAN_TYPE, LN_TRADE_NO, LOAN_KIND, 
+      EXP_FLAG, FOUR_STS, FIVE_STS, 
+      BASE_RATE, LN_RATE, OVER_RATE, 
+      FINE_RATE, CMPD_RATE, EXP_RATE, 
+      INNER_INTST, OUTER_INTST, RETURN_COUNT, 
+      ACC_FEE, ACC_TOL_FEE, LN_TYPE, 
+      REPAY_TYPE, GRACE_DAY, VERIFICA_FLAG, 
+      LOAN_STATUS, create_time, update_time, 
+      loan_term, report_date)
+    values (#{id,jdbcType=BIGINT}, #{bizType,jdbcType=VARCHAR}, #{bizYear,jdbcType=VARCHAR}, 
+      #{bizMonth,jdbcType=VARCHAR}, #{cifName,jdbcType=VARCHAR}, #{infoOpType,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{pactNo,jdbcType=VARCHAR}, 
+      #{occDate,jdbcType=VARCHAR}, #{infoType,jdbcType=VARCHAR}, #{dueNo,jdbcType=VARCHAR}, 
+      #{curNo,jdbcType=VARCHAR}, #{dueAmt,jdbcType=DECIMAL}, #{bal,jdbcType=DECIMAL}, 
+      #{begDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, #{occurType,jdbcType=VARCHAR}, 
+      #{loanType,jdbcType=VARCHAR}, #{lnTradeNo,jdbcType=VARCHAR}, #{loanKind,jdbcType=VARCHAR}, 
+      #{expFlag,jdbcType=VARCHAR}, #{fourSts,jdbcType=VARCHAR}, #{fiveSts,jdbcType=VARCHAR}, 
+      #{baseRate,jdbcType=VARCHAR}, #{lnRate,jdbcType=DECIMAL}, #{overRate,jdbcType=DECIMAL}, 
+      #{fineRate,jdbcType=DECIMAL}, #{cmpdRate,jdbcType=DECIMAL}, #{expRate,jdbcType=DECIMAL}, 
+      #{innerIntst,jdbcType=DECIMAL}, #{outerIntst,jdbcType=DECIMAL}, #{returnCount,jdbcType=VARCHAR}, 
+      #{accFee,jdbcType=DECIMAL}, #{accTolFee,jdbcType=DECIMAL}, #{lnType,jdbcType=VARCHAR}, 
+      #{repayType,jdbcType=VARCHAR}, #{graceDay,jdbcType=VARCHAR}, #{verificaFlag,jdbcType=VARCHAR}, 
+      #{loanStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{loanTerm,jdbcType=INTEGER}, #{reportDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shine.micro.db.pojo.DrDueInfo">
+    insert into dr_due_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="bizYear != null">
+        biz_year,
+      </if>
+      <if test="bizMonth != null">
+        biz_month,
+      </if>
+      <if test="cifName != null">
+        CIF_NAME,
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="pactNo != null">
+        PACT_NO,
+      </if>
+      <if test="occDate != null">
+        OCC_DATE,
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE,
+      </if>
+      <if test="dueNo != null">
+        DUE_NO,
+      </if>
+      <if test="curNo != null">
+        CUR_NO,
+      </if>
+      <if test="dueAmt != null">
+        DUE_AMT,
+      </if>
+      <if test="bal != null">
+        BAL,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="occurType != null">
+        OCCUR_TYPE,
+      </if>
+      <if test="loanType != null">
+        LOAN_TYPE,
+      </if>
+      <if test="lnTradeNo != null">
+        LN_TRADE_NO,
+      </if>
+      <if test="loanKind != null">
+        LOAN_KIND,
+      </if>
+      <if test="expFlag != null">
+        EXP_FLAG,
+      </if>
+      <if test="fourSts != null">
+        FOUR_STS,
+      </if>
+      <if test="fiveSts != null">
+        FIVE_STS,
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE,
+      </if>
+      <if test="lnRate != null">
+        LN_RATE,
+      </if>
+      <if test="overRate != null">
+        OVER_RATE,
+      </if>
+      <if test="fineRate != null">
+        FINE_RATE,
+      </if>
+      <if test="cmpdRate != null">
+        CMPD_RATE,
+      </if>
+      <if test="expRate != null">
+        EXP_RATE,
+      </if>
+      <if test="innerIntst != null">
+        INNER_INTST,
+      </if>
+      <if test="outerIntst != null">
+        OUTER_INTST,
+      </if>
+      <if test="returnCount != null">
+        RETURN_COUNT,
+      </if>
+      <if test="accFee != null">
+        ACC_FEE,
+      </if>
+      <if test="accTolFee != null">
+        ACC_TOL_FEE,
+      </if>
+      <if test="lnType != null">
+        LN_TYPE,
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE,
+      </if>
+      <if test="graceDay != null">
+        GRACE_DAY,
+      </if>
+      <if test="verificaFlag != null">
+        VERIFICA_FLAG,
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="loanTerm != null">
+        loan_term,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="curNo != null">
+        #{curNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dueAmt != null">
+        #{dueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bal != null">
+        #{bal,jdbcType=DECIMAL},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="occurType != null">
+        #{occurType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanType != null">
+        #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="lnTradeNo != null">
+        #{lnTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanKind != null">
+        #{loanKind,jdbcType=VARCHAR},
+      </if>
+      <if test="expFlag != null">
+        #{expFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="fourSts != null">
+        #{fourSts,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveSts != null">
+        #{fiveSts,jdbcType=VARCHAR},
+      </if>
+      <if test="baseRate != null">
+        #{baseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnRate != null">
+        #{lnRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overRate != null">
+        #{overRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fineRate != null">
+        #{fineRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cmpdRate != null">
+        #{cmpdRate,jdbcType=DECIMAL},
+      </if>
+      <if test="expRate != null">
+        #{expRate,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntst != null">
+        #{innerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="outerIntst != null">
+        #{outerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="returnCount != null">
+        #{returnCount,jdbcType=VARCHAR},
+      </if>
+      <if test="accFee != null">
+        #{accFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accTolFee != null">
+        #{accTolFee,jdbcType=DECIMAL},
+      </if>
+      <if test="lnType != null">
+        #{lnType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDay != null">
+        #{graceDay,jdbcType=VARCHAR},
+      </if>
+      <if test="verificaFlag != null">
+        #{verificaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loanTerm != null">
+        #{loanTerm,jdbcType=INTEGER},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shine.micro.db.pojo.DrDueInfo">
+    update dr_due_info
+    <set>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        biz_year = #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        biz_month = #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="curNo != null">
+        CUR_NO = #{curNo,jdbcType=VARCHAR},
+      </if>
+      <if test="dueAmt != null">
+        DUE_AMT = #{dueAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bal != null">
+        BAL = #{bal,jdbcType=DECIMAL},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="occurType != null">
+        OCCUR_TYPE = #{occurType,jdbcType=VARCHAR},
+      </if>
+      <if test="loanType != null">
+        LOAN_TYPE = #{loanType,jdbcType=VARCHAR},
+      </if>
+      <if test="lnTradeNo != null">
+        LN_TRADE_NO = #{lnTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loanKind != null">
+        LOAN_KIND = #{loanKind,jdbcType=VARCHAR},
+      </if>
+      <if test="expFlag != null">
+        EXP_FLAG = #{expFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="fourSts != null">
+        FOUR_STS = #{fourSts,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveSts != null">
+        FIVE_STS = #{fiveSts,jdbcType=VARCHAR},
+      </if>
+      <if test="baseRate != null">
+        BASE_RATE = #{baseRate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnRate != null">
+        LN_RATE = #{lnRate,jdbcType=DECIMAL},
+      </if>
+      <if test="overRate != null">
+        OVER_RATE = #{overRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fineRate != null">
+        FINE_RATE = #{fineRate,jdbcType=DECIMAL},
+      </if>
+      <if test="cmpdRate != null">
+        CMPD_RATE = #{cmpdRate,jdbcType=DECIMAL},
+      </if>
+      <if test="expRate != null">
+        EXP_RATE = #{expRate,jdbcType=DECIMAL},
+      </if>
+      <if test="innerIntst != null">
+        INNER_INTST = #{innerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="outerIntst != null">
+        OUTER_INTST = #{outerIntst,jdbcType=DECIMAL},
+      </if>
+      <if test="returnCount != null">
+        RETURN_COUNT = #{returnCount,jdbcType=VARCHAR},
+      </if>
+      <if test="accFee != null">
+        ACC_FEE = #{accFee,jdbcType=DECIMAL},
+      </if>
+      <if test="accTolFee != null">
+        ACC_TOL_FEE = #{accTolFee,jdbcType=DECIMAL},
+      </if>
+      <if test="lnType != null">
+        LN_TYPE = #{lnType,jdbcType=VARCHAR},
+      </if>
+      <if test="repayType != null">
+        REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      </if>
+      <if test="graceDay != null">
+        GRACE_DAY = #{graceDay,jdbcType=VARCHAR},
+      </if>
+      <if test="verificaFlag != null">
+        VERIFICA_FLAG = #{verificaFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loanStatus != null">
+        LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loanTerm != null">
+        loan_term = #{loanTerm,jdbcType=INTEGER},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shine.micro.db.pojo.DrDueInfo">
+    update dr_due_info
+    set biz_type = #{bizType,jdbcType=VARCHAR},
+      biz_year = #{bizYear,jdbcType=VARCHAR},
+      biz_month = #{bizMonth,jdbcType=VARCHAR},
+      CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      CUR_NO = #{curNo,jdbcType=VARCHAR},
+      DUE_AMT = #{dueAmt,jdbcType=DECIMAL},
+      BAL = #{bal,jdbcType=DECIMAL},
+      BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      OCCUR_TYPE = #{occurType,jdbcType=VARCHAR},
+      LOAN_TYPE = #{loanType,jdbcType=VARCHAR},
+      LN_TRADE_NO = #{lnTradeNo,jdbcType=VARCHAR},
+      LOAN_KIND = #{loanKind,jdbcType=VARCHAR},
+      EXP_FLAG = #{expFlag,jdbcType=VARCHAR},
+      FOUR_STS = #{fourSts,jdbcType=VARCHAR},
+      FIVE_STS = #{fiveSts,jdbcType=VARCHAR},
+      BASE_RATE = #{baseRate,jdbcType=VARCHAR},
+      LN_RATE = #{lnRate,jdbcType=DECIMAL},
+      OVER_RATE = #{overRate,jdbcType=DECIMAL},
+      FINE_RATE = #{fineRate,jdbcType=DECIMAL},
+      CMPD_RATE = #{cmpdRate,jdbcType=DECIMAL},
+      EXP_RATE = #{expRate,jdbcType=DECIMAL},
+      INNER_INTST = #{innerIntst,jdbcType=DECIMAL},
+      OUTER_INTST = #{outerIntst,jdbcType=DECIMAL},
+      RETURN_COUNT = #{returnCount,jdbcType=VARCHAR},
+      ACC_FEE = #{accFee,jdbcType=DECIMAL},
+      ACC_TOL_FEE = #{accTolFee,jdbcType=DECIMAL},
+      LN_TYPE = #{lnType,jdbcType=VARCHAR},
+      REPAY_TYPE = #{repayType,jdbcType=VARCHAR},
+      GRACE_DAY = #{graceDay,jdbcType=VARCHAR},
+      VERIFICA_FLAG = #{verificaFlag,jdbcType=VARCHAR},
+      LOAN_STATUS = #{loanStatus,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      loan_term = #{loanTerm,jdbcType=INTEGER},
+      report_date = #{reportDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

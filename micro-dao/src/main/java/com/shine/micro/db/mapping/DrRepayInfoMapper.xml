@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shine.micro.db.mapper.DrRepayInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shine.micro.db.pojo.DrRepayInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="biz_no" jdbcType="VARCHAR" property="bizNo" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="biz_year" jdbcType="VARCHAR" property="bizYear" />
+    <result column="biz_month" jdbcType="VARCHAR" property="bizMonth" />
+    <result column="INFO_OP_TYPE" jdbcType="VARCHAR" property="infoOpType" />
+    <result column="CIF_NAME" jdbcType="VARCHAR" property="cifName" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="PACT_NO" jdbcType="VARCHAR" property="pactNo" />
+    <result column="OCC_DATE" jdbcType="VARCHAR" property="occDate" />
+    <result column="INFO_TYPE" jdbcType="VARCHAR" property="infoType" />
+    <result column="DUE_NO" jdbcType="VARCHAR" property="dueNo" />
+    <result column="RETURN_DATE" jdbcType="VARCHAR" property="returnDate" />
+    <result column="COUNTS" jdbcType="VARCHAR" property="counts" />
+    <result column="RETURN_TYPE" jdbcType="VARCHAR" property="returnType" />
+    <result column="RETURN_AMT" jdbcType="DECIMAL" property="returnAmt" />
+    <result column="RETURN_CAPITAL" jdbcType="DECIMAL" property="returnCapital" />
+    <result column="RETURN_INTEREST" jdbcType="DECIMAL" property="returnInterest" />
+    <result column="RETURN_OTHER" jdbcType="DECIMAL" property="returnOther" />
+    <result column="IS_OVERPAY" jdbcType="VARCHAR" property="isOverpay" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, biz_no, biz_type, biz_year, biz_month, INFO_OP_TYPE, CIF_NAME, ID_TYPE, ID_NO, 
+    PACT_NO, OCC_DATE, INFO_TYPE, DUE_NO, RETURN_DATE, COUNTS, RETURN_TYPE, RETURN_AMT, 
+    RETURN_CAPITAL, RETURN_INTEREST, RETURN_OTHER, IS_OVERPAY, create_time, update_time, 
+    report_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_repay_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dr_repay_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shine.micro.db.pojo.DrRepayInfo">
+    insert into dr_repay_info (id, biz_no, biz_type, 
+      biz_year, biz_month, INFO_OP_TYPE, 
+      CIF_NAME, ID_TYPE, ID_NO, 
+      PACT_NO, OCC_DATE, INFO_TYPE, 
+      DUE_NO, RETURN_DATE, COUNTS, 
+      RETURN_TYPE, RETURN_AMT, RETURN_CAPITAL, 
+      RETURN_INTEREST, RETURN_OTHER, IS_OVERPAY, 
+      create_time, update_time, report_date
+      )
+    values (#{id,jdbcType=BIGINT}, #{bizNo,jdbcType=VARCHAR}, #{bizType,jdbcType=VARCHAR}, 
+      #{bizYear,jdbcType=VARCHAR}, #{bizMonth,jdbcType=VARCHAR}, #{infoOpType,jdbcType=VARCHAR}, 
+      #{cifName,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, 
+      #{pactNo,jdbcType=VARCHAR}, #{occDate,jdbcType=VARCHAR}, #{infoType,jdbcType=VARCHAR}, 
+      #{dueNo,jdbcType=VARCHAR}, #{returnDate,jdbcType=VARCHAR}, #{counts,jdbcType=VARCHAR}, 
+      #{returnType,jdbcType=VARCHAR}, #{returnAmt,jdbcType=DECIMAL}, #{returnCapital,jdbcType=DECIMAL}, 
+      #{returnInterest,jdbcType=DECIMAL}, #{returnOther,jdbcType=DECIMAL}, #{isOverpay,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{reportDate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shine.micro.db.pojo.DrRepayInfo">
+    insert into dr_repay_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bizNo != null">
+        biz_no,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="bizYear != null">
+        biz_year,
+      </if>
+      <if test="bizMonth != null">
+        biz_month,
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE,
+      </if>
+      <if test="cifName != null">
+        CIF_NAME,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="pactNo != null">
+        PACT_NO,
+      </if>
+      <if test="occDate != null">
+        OCC_DATE,
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE,
+      </if>
+      <if test="dueNo != null">
+        DUE_NO,
+      </if>
+      <if test="returnDate != null">
+        RETURN_DATE,
+      </if>
+      <if test="counts != null">
+        COUNTS,
+      </if>
+      <if test="returnType != null">
+        RETURN_TYPE,
+      </if>
+      <if test="returnAmt != null">
+        RETURN_AMT,
+      </if>
+      <if test="returnCapital != null">
+        RETURN_CAPITAL,
+      </if>
+      <if test="returnInterest != null">
+        RETURN_INTEREST,
+      </if>
+      <if test="returnOther != null">
+        RETURN_OTHER,
+      </if>
+      <if test="isOverpay != null">
+        IS_OVERPAY,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bizNo != null">
+        #{bizNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnDate != null">
+        #{returnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="counts != null">
+        #{counts,jdbcType=VARCHAR},
+      </if>
+      <if test="returnType != null">
+        #{returnType,jdbcType=VARCHAR},
+      </if>
+      <if test="returnAmt != null">
+        #{returnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="returnCapital != null">
+        #{returnCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="returnInterest != null">
+        #{returnInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOther != null">
+        #{returnOther,jdbcType=DECIMAL},
+      </if>
+      <if test="isOverpay != null">
+        #{isOverpay,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shine.micro.db.pojo.DrRepayInfo">
+    update dr_repay_info
+    <set>
+      <if test="bizNo != null">
+        biz_no = #{bizNo,jdbcType=VARCHAR},
+      </if>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        biz_year = #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        biz_month = #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="dueNo != null">
+        DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnDate != null">
+        RETURN_DATE = #{returnDate,jdbcType=VARCHAR},
+      </if>
+      <if test="counts != null">
+        COUNTS = #{counts,jdbcType=VARCHAR},
+      </if>
+      <if test="returnType != null">
+        RETURN_TYPE = #{returnType,jdbcType=VARCHAR},
+      </if>
+      <if test="returnAmt != null">
+        RETURN_AMT = #{returnAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="returnCapital != null">
+        RETURN_CAPITAL = #{returnCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="returnInterest != null">
+        RETURN_INTEREST = #{returnInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOther != null">
+        RETURN_OTHER = #{returnOther,jdbcType=DECIMAL},
+      </if>
+      <if test="isOverpay != null">
+        IS_OVERPAY = #{isOverpay,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shine.micro.db.pojo.DrRepayInfo">
+    update dr_repay_info
+    set biz_no = #{bizNo,jdbcType=VARCHAR},
+      biz_type = #{bizType,jdbcType=VARCHAR},
+      biz_year = #{bizYear,jdbcType=VARCHAR},
+      biz_month = #{bizMonth,jdbcType=VARCHAR},
+      INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      DUE_NO = #{dueNo,jdbcType=VARCHAR},
+      RETURN_DATE = #{returnDate,jdbcType=VARCHAR},
+      COUNTS = #{counts,jdbcType=VARCHAR},
+      RETURN_TYPE = #{returnType,jdbcType=VARCHAR},
+      RETURN_AMT = #{returnAmt,jdbcType=DECIMAL},
+      RETURN_CAPITAL = #{returnCapital,jdbcType=DECIMAL},
+      RETURN_INTEREST = #{returnInterest,jdbcType=DECIMAL},
+      RETURN_OTHER = #{returnOther,jdbcType=DECIMAL},
+      IS_OVERPAY = #{isOverpay,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      report_date = #{reportDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shine.micro.db.mapper.DrCustInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shine.micro.db.pojo.DrCustInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="INFO_OP_TYPE" jdbcType="VARCHAR" property="infoOpType" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="CIF_NAME" jdbcType="VARCHAR" property="cifName" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="BIRTH_DAY" jdbcType="VARCHAR" property="birthDay" />
+    <result column="MARRIGE" jdbcType="VARCHAR" property="marrige" />
+    <result column="EDU" jdbcType="VARCHAR" property="edu" />
+    <result column="DEGREE" jdbcType="VARCHAR" property="degree" />
+    <result column="RESIDE_TEL" jdbcType="VARCHAR" property="resideTel" />
+    <result column="CELL" jdbcType="VARCHAR" property="cell" />
+    <result column="CORP_TEL" jdbcType="VARCHAR" property="corpTel" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="COMM_ADDR" jdbcType="VARCHAR" property="commAddr" />
+    <result column="COMM_POST_CODE" jdbcType="VARCHAR" property="commPostCode" />
+    <result column="CENS_ADDR" jdbcType="VARCHAR" property="censAddr" />
+    <result column="INDIV_SPS_NAME" jdbcType="VARCHAR" property="indivSpsName" />
+    <result column="INDIV_SPS_ID_TYP" jdbcType="VARCHAR" property="indivSpsIdTyp" />
+    <result column="INDIV_SPS_ID_CODE" jdbcType="VARCHAR" property="indivSpsIdCode" />
+    <result column="INDIV_SCOM_NAME" jdbcType="VARCHAR" property="indivScomName" />
+    <result column="INDIV_SPS_PHN" jdbcType="VARCHAR" property="indivSpsPhn" />
+    <result column="OCC_DATE" jdbcType="VARCHAR" property="occDate" />
+    <result column="INFO_TYPE_C" jdbcType="VARCHAR" property="infoTypeC" />
+    <result column="INFO_TYPE_D" jdbcType="VARCHAR" property="infoTypeD" />
+    <result column="WORK_TYPE" jdbcType="VARCHAR" property="workType" />
+    <result column="CORP_NAME" jdbcType="VARCHAR" property="corpName" />
+    <result column="CORP_TRADE_NAME" jdbcType="VARCHAR" property="corpTradeName" />
+    <result column="CORP_ADDR" jdbcType="VARCHAR" property="corpAddr" />
+    <result column="CORP_POST_CODE" jdbcType="VARCHAR" property="corpPostCode" />
+    <result column="WORK_BEG_DATE" jdbcType="VARCHAR" property="workBegDate" />
+    <result column="DUTY" jdbcType="VARCHAR" property="duty" />
+    <result column="WORK_TITLE" jdbcType="VARCHAR" property="workTitle" />
+    <result column="INCOME" jdbcType="DECIMAL" property="income" />
+    <result column="WAGE_AC_NO" jdbcType="VARCHAR" property="wageAcNo" />
+    <result column="WAGE_BR_NO" jdbcType="VARCHAR" property="wageBrNo" />
+    <result column="RESIDE_ADDR" jdbcType="VARCHAR" property="resideAddr" />
+    <result column="RESIDE_POST_CODE" jdbcType="VARCHAR" property="residePostCode" />
+    <result column="RESIDE_STS" jdbcType="VARCHAR" property="resideSts" />
+    <result column="CIF_AREA" jdbcType="VARCHAR" property="cifArea" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, biz_type, INFO_OP_TYPE, ID_TYPE, ID_NO, CIF_NAME, SEX, BIRTH_DAY, MARRIGE, EDU, 
+    DEGREE, RESIDE_TEL, CELL, CORP_TEL, EMAIL, COMM_ADDR, COMM_POST_CODE, CENS_ADDR, 
+    INDIV_SPS_NAME, INDIV_SPS_ID_TYP, INDIV_SPS_ID_CODE, INDIV_SCOM_NAME, INDIV_SPS_PHN, 
+    OCC_DATE, INFO_TYPE_C, INFO_TYPE_D, WORK_TYPE, CORP_NAME, CORP_TRADE_NAME, CORP_ADDR, 
+    CORP_POST_CODE, WORK_BEG_DATE, DUTY, WORK_TITLE, INCOME, WAGE_AC_NO, WAGE_BR_NO, 
+    RESIDE_ADDR, RESIDE_POST_CODE, RESIDE_STS, CIF_AREA, create_time, update_time, report_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_cust_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dr_cust_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shine.micro.db.pojo.DrCustInfo">
+    insert into dr_cust_info (id, biz_type, INFO_OP_TYPE, 
+      ID_TYPE, ID_NO, CIF_NAME, 
+      SEX, BIRTH_DAY, MARRIGE, 
+      EDU, DEGREE, RESIDE_TEL, 
+      CELL, CORP_TEL, EMAIL, 
+      COMM_ADDR, COMM_POST_CODE, CENS_ADDR, 
+      INDIV_SPS_NAME, INDIV_SPS_ID_TYP, INDIV_SPS_ID_CODE, 
+      INDIV_SCOM_NAME, INDIV_SPS_PHN, OCC_DATE, 
+      INFO_TYPE_C, INFO_TYPE_D, WORK_TYPE, 
+      CORP_NAME, CORP_TRADE_NAME, CORP_ADDR, 
+      CORP_POST_CODE, WORK_BEG_DATE, DUTY, 
+      WORK_TITLE, INCOME, WAGE_AC_NO, 
+      WAGE_BR_NO, RESIDE_ADDR, RESIDE_POST_CODE, 
+      RESIDE_STS, CIF_AREA, create_time, 
+      update_time, report_date)
+    values (#{id,jdbcType=BIGINT}, #{bizType,jdbcType=VARCHAR}, #{infoOpType,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{cifName,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthDay,jdbcType=VARCHAR}, #{marrige,jdbcType=VARCHAR}, 
+      #{edu,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{resideTel,jdbcType=VARCHAR}, 
+      #{cell,jdbcType=VARCHAR}, #{corpTel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{commAddr,jdbcType=VARCHAR}, #{commPostCode,jdbcType=VARCHAR}, #{censAddr,jdbcType=VARCHAR}, 
+      #{indivSpsName,jdbcType=VARCHAR}, #{indivSpsIdTyp,jdbcType=VARCHAR}, #{indivSpsIdCode,jdbcType=VARCHAR}, 
+      #{indivScomName,jdbcType=VARCHAR}, #{indivSpsPhn,jdbcType=VARCHAR}, #{occDate,jdbcType=VARCHAR}, 
+      #{infoTypeC,jdbcType=VARCHAR}, #{infoTypeD,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, 
+      #{corpName,jdbcType=VARCHAR}, #{corpTradeName,jdbcType=VARCHAR}, #{corpAddr,jdbcType=VARCHAR}, 
+      #{corpPostCode,jdbcType=VARCHAR}, #{workBegDate,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, 
+      #{workTitle,jdbcType=VARCHAR}, #{income,jdbcType=DECIMAL}, #{wageAcNo,jdbcType=VARCHAR}, 
+      #{wageBrNo,jdbcType=VARCHAR}, #{resideAddr,jdbcType=VARCHAR}, #{residePostCode,jdbcType=VARCHAR}, 
+      #{resideSts,jdbcType=VARCHAR}, #{cifArea,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{reportDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shine.micro.db.pojo.DrCustInfo">
+    insert into dr_cust_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="cifName != null">
+        CIF_NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="birthDay != null">
+        BIRTH_DAY,
+      </if>
+      <if test="marrige != null">
+        MARRIGE,
+      </if>
+      <if test="edu != null">
+        EDU,
+      </if>
+      <if test="degree != null">
+        DEGREE,
+      </if>
+      <if test="resideTel != null">
+        RESIDE_TEL,
+      </if>
+      <if test="cell != null">
+        CELL,
+      </if>
+      <if test="corpTel != null">
+        CORP_TEL,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="commAddr != null">
+        COMM_ADDR,
+      </if>
+      <if test="commPostCode != null">
+        COMM_POST_CODE,
+      </if>
+      <if test="censAddr != null">
+        CENS_ADDR,
+      </if>
+      <if test="indivSpsName != null">
+        INDIV_SPS_NAME,
+      </if>
+      <if test="indivSpsIdTyp != null">
+        INDIV_SPS_ID_TYP,
+      </if>
+      <if test="indivSpsIdCode != null">
+        INDIV_SPS_ID_CODE,
+      </if>
+      <if test="indivScomName != null">
+        INDIV_SCOM_NAME,
+      </if>
+      <if test="indivSpsPhn != null">
+        INDIV_SPS_PHN,
+      </if>
+      <if test="occDate != null">
+        OCC_DATE,
+      </if>
+      <if test="infoTypeC != null">
+        INFO_TYPE_C,
+      </if>
+      <if test="infoTypeD != null">
+        INFO_TYPE_D,
+      </if>
+      <if test="workType != null">
+        WORK_TYPE,
+      </if>
+      <if test="corpName != null">
+        CORP_NAME,
+      </if>
+      <if test="corpTradeName != null">
+        CORP_TRADE_NAME,
+      </if>
+      <if test="corpAddr != null">
+        CORP_ADDR,
+      </if>
+      <if test="corpPostCode != null">
+        CORP_POST_CODE,
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE,
+      </if>
+      <if test="duty != null">
+        DUTY,
+      </if>
+      <if test="workTitle != null">
+        WORK_TITLE,
+      </if>
+      <if test="income != null">
+        INCOME,
+      </if>
+      <if test="wageAcNo != null">
+        WAGE_AC_NO,
+      </if>
+      <if test="wageBrNo != null">
+        WAGE_BR_NO,
+      </if>
+      <if test="resideAddr != null">
+        RESIDE_ADDR,
+      </if>
+      <if test="residePostCode != null">
+        RESIDE_POST_CODE,
+      </if>
+      <if test="resideSts != null">
+        RESIDE_STS,
+      </if>
+      <if test="cifArea != null">
+        CIF_AREA,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDay != null">
+        #{birthDay,jdbcType=VARCHAR},
+      </if>
+      <if test="marrige != null">
+        #{marrige,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null">
+        #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="resideTel != null">
+        #{resideTel,jdbcType=VARCHAR},
+      </if>
+      <if test="cell != null">
+        #{cell,jdbcType=VARCHAR},
+      </if>
+      <if test="corpTel != null">
+        #{corpTel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="commAddr != null">
+        #{commAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="commPostCode != null">
+        #{commPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="censAddr != null">
+        #{censAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsName != null">
+        #{indivSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdTyp != null">
+        #{indivSpsIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdCode != null">
+        #{indivSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivScomName != null">
+        #{indivScomName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsPhn != null">
+        #{indivSpsPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTypeC != null">
+        #{infoTypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTypeD != null">
+        #{infoTypeD,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null">
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="corpName != null">
+        #{corpName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpTradeName != null">
+        #{corpTradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpAddr != null">
+        #{corpAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="corpPostCode != null">
+        #{corpPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        #{workBegDate,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="workTitle != null">
+        #{workTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="wageAcNo != null">
+        #{wageAcNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wageBrNo != null">
+        #{wageBrNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resideAddr != null">
+        #{resideAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="residePostCode != null">
+        #{residePostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resideSts != null">
+        #{resideSts,jdbcType=VARCHAR},
+      </if>
+      <if test="cifArea != null">
+        #{cifArea,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shine.micro.db.pojo.DrCustInfo">
+    update dr_cust_info
+    <set>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthDay != null">
+        BIRTH_DAY = #{birthDay,jdbcType=VARCHAR},
+      </if>
+      <if test="marrige != null">
+        MARRIGE = #{marrige,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null">
+        EDU = #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        DEGREE = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="resideTel != null">
+        RESIDE_TEL = #{resideTel,jdbcType=VARCHAR},
+      </if>
+      <if test="cell != null">
+        CELL = #{cell,jdbcType=VARCHAR},
+      </if>
+      <if test="corpTel != null">
+        CORP_TEL = #{corpTel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="commAddr != null">
+        COMM_ADDR = #{commAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="commPostCode != null">
+        COMM_POST_CODE = #{commPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="censAddr != null">
+        CENS_ADDR = #{censAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsName != null">
+        INDIV_SPS_NAME = #{indivSpsName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdTyp != null">
+        INDIV_SPS_ID_TYP = #{indivSpsIdTyp,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsIdCode != null">
+        INDIV_SPS_ID_CODE = #{indivSpsIdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indivScomName != null">
+        INDIV_SCOM_NAME = #{indivScomName,jdbcType=VARCHAR},
+      </if>
+      <if test="indivSpsPhn != null">
+        INDIV_SPS_PHN = #{indivSpsPhn,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTypeC != null">
+        INFO_TYPE_C = #{infoTypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="infoTypeD != null">
+        INFO_TYPE_D = #{infoTypeD,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null">
+        WORK_TYPE = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="corpName != null">
+        CORP_NAME = #{corpName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpTradeName != null">
+        CORP_TRADE_NAME = #{corpTradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpAddr != null">
+        CORP_ADDR = #{corpAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="corpPostCode != null">
+        CORP_POST_CODE = #{corpPostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workBegDate != null">
+        WORK_BEG_DATE = #{workBegDate,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        DUTY = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="workTitle != null">
+        WORK_TITLE = #{workTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        INCOME = #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="wageAcNo != null">
+        WAGE_AC_NO = #{wageAcNo,jdbcType=VARCHAR},
+      </if>
+      <if test="wageBrNo != null">
+        WAGE_BR_NO = #{wageBrNo,jdbcType=VARCHAR},
+      </if>
+      <if test="resideAddr != null">
+        RESIDE_ADDR = #{resideAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="residePostCode != null">
+        RESIDE_POST_CODE = #{residePostCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resideSts != null">
+        RESIDE_STS = #{resideSts,jdbcType=VARCHAR},
+      </if>
+      <if test="cifArea != null">
+        CIF_AREA = #{cifArea,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shine.micro.db.pojo.DrCustInfo">
+    update dr_cust_info
+    set biz_type = #{bizType,jdbcType=VARCHAR},
+      INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTH_DAY = #{birthDay,jdbcType=VARCHAR},
+      MARRIGE = #{marrige,jdbcType=VARCHAR},
+      EDU = #{edu,jdbcType=VARCHAR},
+      DEGREE = #{degree,jdbcType=VARCHAR},
+      RESIDE_TEL = #{resideTel,jdbcType=VARCHAR},
+      CELL = #{cell,jdbcType=VARCHAR},
+      CORP_TEL = #{corpTel,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      COMM_ADDR = #{commAddr,jdbcType=VARCHAR},
+      COMM_POST_CODE = #{commPostCode,jdbcType=VARCHAR},
+      CENS_ADDR = #{censAddr,jdbcType=VARCHAR},
+      INDIV_SPS_NAME = #{indivSpsName,jdbcType=VARCHAR},
+      INDIV_SPS_ID_TYP = #{indivSpsIdTyp,jdbcType=VARCHAR},
+      INDIV_SPS_ID_CODE = #{indivSpsIdCode,jdbcType=VARCHAR},
+      INDIV_SCOM_NAME = #{indivScomName,jdbcType=VARCHAR},
+      INDIV_SPS_PHN = #{indivSpsPhn,jdbcType=VARCHAR},
+      OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      INFO_TYPE_C = #{infoTypeC,jdbcType=VARCHAR},
+      INFO_TYPE_D = #{infoTypeD,jdbcType=VARCHAR},
+      WORK_TYPE = #{workType,jdbcType=VARCHAR},
+      CORP_NAME = #{corpName,jdbcType=VARCHAR},
+      CORP_TRADE_NAME = #{corpTradeName,jdbcType=VARCHAR},
+      CORP_ADDR = #{corpAddr,jdbcType=VARCHAR},
+      CORP_POST_CODE = #{corpPostCode,jdbcType=VARCHAR},
+      WORK_BEG_DATE = #{workBegDate,jdbcType=VARCHAR},
+      DUTY = #{duty,jdbcType=VARCHAR},
+      WORK_TITLE = #{workTitle,jdbcType=VARCHAR},
+      INCOME = #{income,jdbcType=DECIMAL},
+      WAGE_AC_NO = #{wageAcNo,jdbcType=VARCHAR},
+      WAGE_BR_NO = #{wageBrNo,jdbcType=VARCHAR},
+      RESIDE_ADDR = #{resideAddr,jdbcType=VARCHAR},
+      RESIDE_POST_CODE = #{residePostCode,jdbcType=VARCHAR},
+      RESIDE_STS = #{resideSts,jdbcType=VARCHAR},
+      CIF_AREA = #{cifArea,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      report_date = #{reportDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

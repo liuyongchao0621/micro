@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shine.micro.db.mapper.DrContractInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shine.micro.db.pojo.DrContractInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="biz_year" jdbcType="VARCHAR" property="bizYear" />
+    <result column="biz_month" jdbcType="VARCHAR" property="bizMonth" />
+    <result column="CIF_NAME" jdbcType="VARCHAR" property="cifName" />
+    <result column="INFO_OP_TYPE" jdbcType="VARCHAR" property="infoOpType" />
+    <result column="ID_TYPE" jdbcType="VARCHAR" property="idType" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="PACT_NO" jdbcType="VARCHAR" property="pactNo" />
+    <result column="OCC_DATE" jdbcType="VARCHAR" property="occDate" />
+    <result column="INFO_TYPE" jdbcType="VARCHAR" property="infoType" />
+    <result column="CUR_NO" jdbcType="VARCHAR" property="curNo" />
+    <result column="AUTH_ID" jdbcType="VARCHAR" property="authId" />
+    <result column="BEG_DATE" jdbcType="VARCHAR" property="begDate" />
+    <result column="END_DATE" jdbcType="VARCHAR" property="endDate" />
+    <result column="IF_YT" jdbcType="VARCHAR" property="ifYt" />
+    <result column="VOU_TYPE" jdbcType="VARCHAR" property="vouType" />
+    <result column="PACT_STS" jdbcType="VARCHAR" property="pactSts" />
+    <result column="SIGN_DATE" jdbcType="VARCHAR" property="signDate" />
+    <result column="LN_TRADE_NO" jdbcType="VARCHAR" property="lnTradeNo" />
+    <result column="PACT_AMT" jdbcType="DECIMAL" property="pactAmt" />
+    <result column="BAL" jdbcType="DECIMAL" property="bal" />
+    <result column="LOAN_KIND" jdbcType="VARCHAR" property="loanKind" />
+    <result column="TERM_MON" jdbcType="VARCHAR" property="termMon" />
+    <result column="LN_RATE" jdbcType="DECIMAL" property="lnRate" />
+    <result column="LN_TYPE" jdbcType="VARCHAR" property="lnType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, biz_type, biz_year, biz_month, CIF_NAME, INFO_OP_TYPE, ID_TYPE, ID_NO, PACT_NO, 
+    OCC_DATE, INFO_TYPE, CUR_NO, AUTH_ID, BEG_DATE, END_DATE, IF_YT, VOU_TYPE, PACT_STS, 
+    SIGN_DATE, LN_TRADE_NO, PACT_AMT, BAL, LOAN_KIND, TERM_MON, LN_RATE, LN_TYPE, create_time, 
+    update_time, report_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dr_contract_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from dr_contract_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shine.micro.db.pojo.DrContractInfo">
+    insert into dr_contract_info (id, biz_type, biz_year, 
+      biz_month, CIF_NAME, INFO_OP_TYPE, 
+      ID_TYPE, ID_NO, PACT_NO, 
+      OCC_DATE, INFO_TYPE, CUR_NO, 
+      AUTH_ID, BEG_DATE, END_DATE, 
+      IF_YT, VOU_TYPE, PACT_STS, 
+      SIGN_DATE, LN_TRADE_NO, PACT_AMT, 
+      BAL, LOAN_KIND, TERM_MON, 
+      LN_RATE, LN_TYPE, create_time, 
+      update_time, report_date)
+    values (#{id,jdbcType=BIGINT}, #{bizType,jdbcType=VARCHAR}, #{bizYear,jdbcType=VARCHAR}, 
+      #{bizMonth,jdbcType=VARCHAR}, #{cifName,jdbcType=VARCHAR}, #{infoOpType,jdbcType=VARCHAR}, 
+      #{idType,jdbcType=VARCHAR}, #{idNo,jdbcType=VARCHAR}, #{pactNo,jdbcType=VARCHAR}, 
+      #{occDate,jdbcType=VARCHAR}, #{infoType,jdbcType=VARCHAR}, #{curNo,jdbcType=VARCHAR}, 
+      #{authId,jdbcType=VARCHAR}, #{begDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{ifYt,jdbcType=VARCHAR}, #{vouType,jdbcType=VARCHAR}, #{pactSts,jdbcType=VARCHAR}, 
+      #{signDate,jdbcType=VARCHAR}, #{lnTradeNo,jdbcType=VARCHAR}, #{pactAmt,jdbcType=DECIMAL}, 
+      #{bal,jdbcType=DECIMAL}, #{loanKind,jdbcType=VARCHAR}, #{termMon,jdbcType=VARCHAR}, 
+      #{lnRate,jdbcType=DECIMAL}, #{lnType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{reportDate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shine.micro.db.pojo.DrContractInfo">
+    insert into dr_contract_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bizType != null">
+        biz_type,
+      </if>
+      <if test="bizYear != null">
+        biz_year,
+      </if>
+      <if test="bizMonth != null">
+        biz_month,
+      </if>
+      <if test="cifName != null">
+        CIF_NAME,
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="idNo != null">
+        ID_NO,
+      </if>
+      <if test="pactNo != null">
+        PACT_NO,
+      </if>
+      <if test="occDate != null">
+        OCC_DATE,
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE,
+      </if>
+      <if test="curNo != null">
+        CUR_NO,
+      </if>
+      <if test="authId != null">
+        AUTH_ID,
+      </if>
+      <if test="begDate != null">
+        BEG_DATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+      <if test="ifYt != null">
+        IF_YT,
+      </if>
+      <if test="vouType != null">
+        VOU_TYPE,
+      </if>
+      <if test="pactSts != null">
+        PACT_STS,
+      </if>
+      <if test="signDate != null">
+        SIGN_DATE,
+      </if>
+      <if test="lnTradeNo != null">
+        LN_TRADE_NO,
+      </if>
+      <if test="pactAmt != null">
+        PACT_AMT,
+      </if>
+      <if test="bal != null">
+        BAL,
+      </if>
+      <if test="loanKind != null">
+        LOAN_KIND,
+      </if>
+      <if test="termMon != null">
+        TERM_MON,
+      </if>
+      <if test="lnRate != null">
+        LN_RATE,
+      </if>
+      <if test="lnType != null">
+        LN_TYPE,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null">
+        #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="curNo != null">
+        #{curNo,jdbcType=VARCHAR},
+      </if>
+      <if test="authId != null">
+        #{authId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ifYt != null">
+        #{ifYt,jdbcType=VARCHAR},
+      </if>
+      <if test="vouType != null">
+        #{vouType,jdbcType=VARCHAR},
+      </if>
+      <if test="pactSts != null">
+        #{pactSts,jdbcType=VARCHAR},
+      </if>
+      <if test="signDate != null">
+        #{signDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnTradeNo != null">
+        #{lnTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactAmt != null">
+        #{pactAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bal != null">
+        #{bal,jdbcType=DECIMAL},
+      </if>
+      <if test="loanKind != null">
+        #{loanKind,jdbcType=VARCHAR},
+      </if>
+      <if test="termMon != null">
+        #{termMon,jdbcType=VARCHAR},
+      </if>
+      <if test="lnRate != null">
+        #{lnRate,jdbcType=DECIMAL},
+      </if>
+      <if test="lnType != null">
+        #{lnType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shine.micro.db.pojo.DrContractInfo">
+    update dr_contract_info
+    <set>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizYear != null">
+        biz_year = #{bizYear,jdbcType=VARCHAR},
+      </if>
+      <if test="bizMonth != null">
+        biz_month = #{bizMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="cifName != null">
+        CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      </if>
+      <if test="infoOpType != null">
+        INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idNo != null">
+        ID_NO = #{idNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactNo != null">
+        PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      </if>
+      <if test="occDate != null">
+        OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      </if>
+      <if test="infoType != null">
+        INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      </if>
+      <if test="curNo != null">
+        CUR_NO = #{curNo,jdbcType=VARCHAR},
+      </if>
+      <if test="authId != null">
+        AUTH_ID = #{authId,jdbcType=VARCHAR},
+      </if>
+      <if test="begDate != null">
+        BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        END_DATE = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="ifYt != null">
+        IF_YT = #{ifYt,jdbcType=VARCHAR},
+      </if>
+      <if test="vouType != null">
+        VOU_TYPE = #{vouType,jdbcType=VARCHAR},
+      </if>
+      <if test="pactSts != null">
+        PACT_STS = #{pactSts,jdbcType=VARCHAR},
+      </if>
+      <if test="signDate != null">
+        SIGN_DATE = #{signDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lnTradeNo != null">
+        LN_TRADE_NO = #{lnTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="pactAmt != null">
+        PACT_AMT = #{pactAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="bal != null">
+        BAL = #{bal,jdbcType=DECIMAL},
+      </if>
+      <if test="loanKind != null">
+        LOAN_KIND = #{loanKind,jdbcType=VARCHAR},
+      </if>
+      <if test="termMon != null">
+        TERM_MON = #{termMon,jdbcType=VARCHAR},
+      </if>
+      <if test="lnRate != null">
+        LN_RATE = #{lnRate,jdbcType=DECIMAL},
+      </if>
+      <if test="lnType != null">
+        LN_TYPE = #{lnType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shine.micro.db.pojo.DrContractInfo">
+    update dr_contract_info
+    set biz_type = #{bizType,jdbcType=VARCHAR},
+      biz_year = #{bizYear,jdbcType=VARCHAR},
+      biz_month = #{bizMonth,jdbcType=VARCHAR},
+      CIF_NAME = #{cifName,jdbcType=VARCHAR},
+      INFO_OP_TYPE = #{infoOpType,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=VARCHAR},
+      ID_NO = #{idNo,jdbcType=VARCHAR},
+      PACT_NO = #{pactNo,jdbcType=VARCHAR},
+      OCC_DATE = #{occDate,jdbcType=VARCHAR},
+      INFO_TYPE = #{infoType,jdbcType=VARCHAR},
+      CUR_NO = #{curNo,jdbcType=VARCHAR},
+      AUTH_ID = #{authId,jdbcType=VARCHAR},
+      BEG_DATE = #{begDate,jdbcType=VARCHAR},
+      END_DATE = #{endDate,jdbcType=VARCHAR},
+      IF_YT = #{ifYt,jdbcType=VARCHAR},
+      VOU_TYPE = #{vouType,jdbcType=VARCHAR},
+      PACT_STS = #{pactSts,jdbcType=VARCHAR},
+      SIGN_DATE = #{signDate,jdbcType=VARCHAR},
+      LN_TRADE_NO = #{lnTradeNo,jdbcType=VARCHAR},
+      PACT_AMT = #{pactAmt,jdbcType=DECIMAL},
+      BAL = #{bal,jdbcType=DECIMAL},
+      LOAN_KIND = #{loanKind,jdbcType=VARCHAR},
+      TERM_MON = #{termMon,jdbcType=VARCHAR},
+      LN_RATE = #{lnRate,jdbcType=DECIMAL},
+      LN_TYPE = #{lnType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      report_date = #{reportDate,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
