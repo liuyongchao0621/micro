@@ -26,7 +26,6 @@
         <spring.amqp.version>1.7.1.RELEASE</spring.amqp.version>
         <jackson.version>2.8.1</jackson.version>
         <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
-        <guaua.version>19.0</guaua.version>
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
         <validate.api.version>1.1.0.Final</validate.api.version>
         <javax.el.version>2.2.4</javax.el.version>
@@ -60,19 +59,19 @@
         <dependencies>
             <!-- 本项目模块 -->
             <dependency>
-                <groupId>com.micro.service</groupId>
+                <groupId>com.shine.micro</groupId>
                 <artifactId>micro-dao</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.micro.service</groupId>
+                <groupId>com.shine.micro</groupId>
                 <artifactId>micro-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
 
             <dependency>
-                <groupId>com.micro.service</groupId>
+                <groupId>com.shine.micro</groupId>
                 <artifactId>micro-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -85,17 +84,20 @@
                 <version>${spring.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${guaua.version}</version>
+                <version>25.0-jre</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
             <dependency>
-                <!-- 用于支持json的转换，号称目前性能最好的库 -->
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
+                <version>2.9.1</version>
             </dependency>
+
 
             <dependency>
                 <groupId>org.apache.commons</groupId>

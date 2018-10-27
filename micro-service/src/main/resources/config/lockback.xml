@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>finance-installment-web</contextName>
+    <property name="appName" value="micro-service" />
+    <property name="rootDir" value="F:/opt/log/" />
+    <property name="logPattern" value="%d [%t] %-5p %c{72} - %m%n" />
+
+    <property name="sqlLogPattern" value="%d [%t] %-5p - %m%n" />
+    <property name="hdfsLogPattern" value="%m%n" />
+    <property name="maxHistory" value="20"/>
+    <property name="maxFileSize" value="200MB"/>
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${logPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootDir}${appName}/${appName}.all.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootDir}${appName}/history/${appName}.all-%d{yyyy-MM-dd}_%i.log
+            </FileNamePattern>
+            <MaxHistory>${maxHistory}</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>${maxFileSize}</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logPattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>NEUTRAL</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${rootDir}${appName}/${appName}.error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${rootDir}${appName}/history/${appName}.error-%d{yyyy-MM-dd}_%i.log
+            </FileNamePattern>
+            <MaxHistory>${maxHistory}</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>${maxFileSize}</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logPattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+
+    <logger name="com.micro.service" additivity="false">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ALL"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ALL" />
+        <appender-ref ref="ERROR" />
+    </root>
+
+</configuration>

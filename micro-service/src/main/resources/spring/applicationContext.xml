@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans default-lazy-init="false"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:property-placeholder location="classpath*:config/jdbc.properties" ignore-unresolvable="true" />
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.shine.micro"/>
+
+
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!-- PropertyPlaceholderConfigurer类中有个locations属性，接收的是一个数组，即我们可以在下面配好多个properties文件 -->
+        <!--<property name="locations">-->
+            <!--<array>-->
+                <!--<value>file:/opt/scf/service/deploy/loanfront/config/mq.properties</value>-->
+                <!--<value>file:/opt/scf/service/deploy/loanfront/config/biz.properties</value>-->
+            <!--</array>-->
+        <!--</property>-->
+    </bean>
+
+
+    <import resource="classpath*:config/datasource.xml"/>
+</beans>
