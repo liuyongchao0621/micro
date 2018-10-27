@@ -6,7 +6,325 @@
 
     <groupId>com.shine.micro</groupId>
     <artifactId>micro-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>micro-service</module>
+        <module>micro-dao</module>
+        <module>micro-core</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.plugin.compiler.version>3.5.1</maven.plugin.compiler.version>
+        <scf-maven-plugin.version>0.0.12-SNAPSHOT</scf-maven-plugin.version>
+        <scf.client.version>2.2.21</scf.client.version>
+        <scf.server.version>4.1.17</scf.server.version>
+        <junit-vintage-engine.version>4.12.1</junit-vintage-engine.version>
+        <junit-jupiter-engine.version>5.0.1</junit-jupiter-engine.version>
+        <junit-platform-launcher.version>1.0.1</junit-platform-launcher.version>
+        <spring.amqp.version>1.7.1.RELEASE</spring.amqp.version>
+        <jackson.version>2.8.1</jackson.version>
+        <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
+        <guaua.version>19.0</guaua.version>
+        <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+        <validate.api.version>1.1.0.Final</validate.api.version>
+        <javax.el.version>2.2.4</javax.el.version>
+        <joda.time.version>2.9.9</joda.time.version>
+
+        <lombok.version>1.16.20</lombok.version>
+
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <gson.version>2.3.1</gson.version>
+        <spring.version>4.2.7.RELEASE</spring.version>
+        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis-spring.version>1.2.2</mybatis-spring.version>
+        <mysql-connector-java.version>5.1.30</mysql-connector-java.version>
+        <druid.version>1.0.24</druid.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <fastjson.version>1.2.7.sec01</fastjson.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <bootstrap.version>3.1.0.3-RELEASE</bootstrap.version>
+        <kotlin.version>1.0.3</kotlin.version>
+        <unitils.version>3.4.2</unitils.version>
+        <powermock.version>1.6.6</powermock.version>
+        <xstream.version>1.4.9</xstream.version>
+        <com.bj58.poster3.version>0.0.2</com.bj58.poster3.version>
+        <ch.qos.logback>1.1.2</ch.qos.logback>
+        <commons-logging>1.2</commons-logging>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- 本项目模块 -->
+            <dependency>
+                <groupId>com.micro.service</groupId>
+                <artifactId>micro-dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.micro.service</groupId>
+                <artifactId>micro-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.micro.service</groupId>
+                <artifactId>micro-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <!-- spring 等三方引入-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guaua.version}</version>
+            </dependency>
+            <dependency>
+                <!-- 用于支持json的转换，号称目前性能最好的库 -->
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.2.2</version>
+            </dependency>
+
+
+            <!-- 基础jar依赖 start-->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jackson-core-asl.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.19.0-GA</version>
+            </dependency>
+
+            <!-- apache commons -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <!-- apache commons -->
+            <!-- 数据库连接池和驱动  -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
+                <version>2.5.0</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>2.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${xstream.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+
+            <!-- spring dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-launcher</artifactId>
+                <version>${junit-platform-launcher.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter-engine.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+                <version>${junit-vintage-engine.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+
+
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-amqp</artifactId>
+                <version>${spring.amqp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
 </project>
