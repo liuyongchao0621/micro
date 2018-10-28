@@ -61,15 +61,14 @@
                 <version>${project.version}</version>
             </dependency>
 
-
             <dependency>
                 <groupId>com.shine.micro</groupId>
-                <artifactId>micro-core</artifactId>
+                <artifactId>micro-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.shine.micro</groupId>
-                <artifactId>micro-api</artifactId>
+                <artifactId>micro-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

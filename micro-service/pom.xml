@@ -95,6 +95,24 @@
             <artifactId>dubbo</artifactId>
             <version>2.5.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.shine.micro</groupId>
+            <artifactId>micro-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.shine.micro</groupId>
+            <artifactId>micro-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.shine.micro</groupId>
+            <artifactId>micro-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.shine.micro</groupId>
+            <artifactId>micro-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

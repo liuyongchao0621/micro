@@ -21,7 +21,6 @@
 
     <!--&lt;!&ndash; 接口实现类&ndash;&gt;-->
     <!--<bean id="queryBiz" class="com.shine.micro.biz.Impl.QueryBizImp"/>-->
-
-    <dubbo:annotation package="com.shine.micro.inference" />
+    <dubbo:annotation package="com.shine.micro" />
 
 </beans>
