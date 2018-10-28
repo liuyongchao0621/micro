@@ -13,21 +13,13 @@
         <module>micro-dao</module>
         <module>micro-core</module>
         <module>micro-api</module>
+        <module>micro-utils</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spring.amqp.version>1.7.1.RELEASE</spring.amqp.version>
-        <jackson.version>2.8.1</jackson.version>
-        <jackson-core-asl.version>1.9.13</jackson-core-asl.version>
-        <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
-        <validate.api.version>1.1.0.Final</validate.api.version>
-        <javax.el.version>2.2.4</javax.el.version>
-        <joda.time.version>2.9.9</joda.time.version>
-
         <lombok.version>1.16.20</lombok.version>
-
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <commons-codec.version>1.10</commons-codec.version>
@@ -43,7 +35,6 @@
         <unitils.version>3.4.2</unitils.version>
         <powermock.version>1.6.6</powermock.version>
         <xstream.version>1.4.9</xstream.version>
-        <com.bj58.poster3.version>0.0.2</com.bj58.poster3.version>
         <ch.qos.logback>1.1.2</ch.qos.logback>
         <commons-logging>1.2</commons-logging>
     </properties>
@@ -69,6 +60,12 @@
             <dependency>
                 <groupId>com.shine.micro</groupId>
                 <artifactId>micro-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.shine.micro</groupId>
+                <artifactId>micro-utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
