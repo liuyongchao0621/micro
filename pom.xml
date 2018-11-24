@@ -37,6 +37,9 @@
         <xstream.version>1.4.9</xstream.version>
         <ch.qos.logback>1.1.2</ch.qos.logback>
         <commons-logging>1.2</commons-logging>
+        <jstl.version>1.2</jstl.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <jsp-api.version>2.0</jsp-api.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -60,6 +63,12 @@
             <dependency>
                 <groupId>com.shine.micro</groupId>
                 <artifactId>micro-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.shine.micro</groupId>
+                <artifactId>micro-util</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -220,6 +229,24 @@
                 <version>1.0.15</version>
             </dependency>
 
+            <!-- JSP相关 -->
+            <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
