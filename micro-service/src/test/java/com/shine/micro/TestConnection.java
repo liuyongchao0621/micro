@@ -3,7 +3,6 @@ package com.shine.micro;
 
 import com.alibaba.fastjson.JSONObject;
 import com.shine.micro.biz.QueryBiz;
-import com.shine.micro.db.pojo.DrCustInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/spring-context.xml"})
 @Slf4j
 public class TestConnection {
 

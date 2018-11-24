@@ -1,7 +1,6 @@
 package com.shine.micro;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,7 +15,7 @@ public class App
     public static void main( String[] args )
     {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring/applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:spring/spring-context.xml");
 
         context.start();
 
