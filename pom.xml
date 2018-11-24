@@ -13,6 +13,8 @@
         <module>micro-dao</module>
         <module>micro-core</module>
         <module>micro-api</module>
+        <module>micro-util</module>
+        <module>micro-web</module>
     </modules>
 
     <properties>
