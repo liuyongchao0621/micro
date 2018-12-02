@@ -15,6 +15,7 @@
         <module>micro-api</module>
         <module>micro-util</module>
         <module>micro-web</module>
+        <module>micro-demo</module>
     </modules>
 
     <properties>
