@@ -9,14 +9,23 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+/*
+* BeanNameAware 让Bean获取自己在BeanFactory配置中的名字（根据情况是id或者name）
+*
+* BeanFactoryAware  让Bean获取配置他们的BeanFactory的引用
+*
+*
+* **/
 @Data
 @ToString
 @EqualsAndHashCode
 @Slf4j
+@Service
 public class JuiceMaker1 implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     private String stop; //商店
