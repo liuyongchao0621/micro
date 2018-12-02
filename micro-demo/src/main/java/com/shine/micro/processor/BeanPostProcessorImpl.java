@@ -1,4 +1,4 @@
-package com.shine.micro.test.operation;
+package com.shine.micro.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

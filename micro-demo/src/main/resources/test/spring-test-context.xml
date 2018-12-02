@@ -18,14 +18,16 @@
 
 
     <bean id="beanJuice" class="com.shine.micro.test.operation.JuiceMaker1" init-method="init"
-            destroy-method="myDestroy">
+            destroy-method="myDestroy" >
 
         <property name="sources" ref="sources"/>
         <property name="stop" value="贡茶"/>
     </bean>
 
 
-    <bean id="beanPost" class="com.shine.micro.test.operation.BeanPostProcessorImpl"/>
+    <bean id="beanPost" class="com.shine.micro.processor.BeanPostProcessorImpl"/>
+
+    <bean id="beanPost1" class="com.shine.micro.processor.BeanPostProcessorImp2"/>
 
 
 

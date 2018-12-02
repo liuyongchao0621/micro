@@ -11,26 +11,17 @@ public class Test1 {
 
         context.start();
 
-//        JuiceMaker juiceMaker = context.getBean("juices",JuiceMaker.class);
-//
-//        juiceMaker.mix();
-
-        ApplicationContext context1 = new ClassPathXmlApplicationContext("test/spring-test-context.xml");
-
-//        BeanFactoryAware
-
-
-//        BeanFactory factory ;//= new
 
 
 
-        ((ClassPathXmlApplicationContext) context1).start();
 
-        JuiceMaker1 juiceMaker1 = (JuiceMaker1) context1.getBean("beanJuice");
+
+
+        JuiceMaker1 juiceMaker1 = (JuiceMaker1) context.getBean("beanJuice");
 
 
         juiceMaker1.mix();
-        ((ClassPathXmlApplicationContext) context1).close();
+        context.close();
 
     }
 }
