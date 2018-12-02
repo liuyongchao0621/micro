@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sources" class="com.shine.micro.test.pojo.Sources">
+        <property name="fruit" value="橙汁"/>
+        <property name="size" value="大杯"/>
+        <property name="sugar" value="糖"/>
+    </bean>
+
+    <bean id="juice" class="com.shine.micro.test.operation.JuiceMaker" lazy-init="true" > <!-- lazy-init 懒加载-->
+        <property name="sources" ref="sources"/>
+        <property name="stop" value="贡茶"/>
+    </bean>
+
+    <alias name="juice" alias="juices"/>  <!--设置别名-->
+
+
+    <bean id="beanJuice" class="com.shine.micro.test.operation.JuiceMaker1" init-method="init"
+            destroy-method="myDestroy">
+
+        <property name="sources" ref="sources"/>
+        <property name="stop" value="贡茶"/>
+    </bean>
+
+
+    <bean id="beanPost" class="com.shine.micro.test.operation.BeanPostProcessorImpl"/>
+
+
+
+
+</beans>
