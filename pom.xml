@@ -16,10 +16,13 @@
         <module>micro-util</module>
         <module>micro-web</module>
         <module>micro-demo</module>
+        <module>micro-source</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <lombok.version>1.16.20</lombok.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-collections.version>3.2.1</commons-collections.version>
