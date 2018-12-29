@@ -1,12 +1,14 @@
 package com.shine.micro.object.item;
 
+import com.shine.micro.extend.stract.Person;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  *  自定义类
  * */
-public class EmployeeItem implements java.io.Serializable {
+public class EmployeeItem extends Person implements java.io.Serializable {
 
 
     private static final long serialVersionUID = -6611757772304416998L;
@@ -27,6 +29,10 @@ public class EmployeeItem implements java.io.Serializable {
         nextId ++;
 
 //        this.nextId;    //实例域不能用this来修饰
+    }
+
+    public EmployeeItem(String name){
+        super(name);
     }
 
     /**
@@ -54,6 +60,11 @@ public class EmployeeItem implements java.io.Serializable {
         this.name = name;
     }
 
+    @Override
+    public String getDeciption() {
+        return null;
+    }
+
     public BigDecimal getSalary() {
         return salary;
     }
@@ -75,7 +86,7 @@ public class EmployeeItem implements java.io.Serializable {
      *  也可以方法重载
      * */
     public EmployeeItem(String name,BigDecimal salary){
-        this(salary);  //调用另一个构造器git
+        super(name);
         this.name = name;
 //        this.salary = salary;
         this.hireDay = new Date();
@@ -88,10 +99,12 @@ public class EmployeeItem implements java.io.Serializable {
      *
      * */
     public EmployeeItem(){
+        super(null);
 
     }
 
-    public EmployeeItem(BigDecimal salary){
+    public EmployeeItem(BigDecimal salary,String name){
+        super(name);
         this.salary = salary;
     }
 
